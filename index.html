@@ -1,0 +1,162 @@
+<!--
+Portfolio single-file template (index.html)
+Instructions:
+1) Replace the placeholder text inside double curly braces {{ }} with your real data.
+2) Save this file as index.html at the root of a GitHub repository and deploy to GitHub Pages (branch: main or gh-pages) OR push to Vercel (import repo) for automatic deployment.
+3) The file is self-contained (HTML/CSS/JS). You may edit projects section to add/remove project cards.
+
+Sections included as required:
+- Contact info (name, phone/WhatsApp, e-mail)
+- Skills grouped by category (Front-end, Back-end, Databases, Tools)
+- Projects with title, description, link
+- Simple responsive styling and accessible markup
+-->
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfólio - Vinícius Vasconcelos Tenório Cavalcanti</title>
+  <link rel="stylesheet" href="estilo.css" />
+  <meta name="description" content="Portfólio profissional de {{SEU_NOME_COMPLETO}} - habilidades e projetos" />
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--accent:#06b6d4;--glass:rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, Roboto, 'Segoe UI', Arial;background:linear-gradient(180deg,#031026 0%, #071330 100%);color:#e6eef6;line-height:1.45}
+    .container{max-width:1000px;margin:36px auto;padding:20px}
+    header{display:flex;gap:18px;align-items:center}
+    .avatar{width:96px;height:96px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px;color:#021323}
+    h1{margin:0;font-size:28px}
+    p.lead{color:var(--muted);margin:6px 0 0}
+    .contact{margin-top:16px;background:var(--glass);padding:14px;border-radius:12px;display:flex;gap:12px;flex-wrap:wrap}
+    .contact .item{min-width:160px}
+    nav{margin-top:22px;display:flex;gap:8px;flex-wrap:wrap}
+    a.btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px;color:inherit;text-decoration:none}
+
+    section.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .skills ul{list-style:none;padding:0;margin:6px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+    .skills li{background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+
+    .projects .project{border-radius:10px;padding:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);margin-bottom:12px}
+    .projects a.project-link{display:inline-block;margin-top:8px;text-decoration:none;padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06)}
+
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+
+    @media (max-width:820px){section.cards{grid-template-columns:1fr}header{gap:12px}.avatar{width:72px;height:72px;font-size:20px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="avatar">{{INICIAIS}}</div>
+      <div>
+        <h1>Vinícius Vasconcelos Tenório Cavalcanti</h1>
+        <p class="lead">Desenvolvimento de sistemas — portfólio profissional</p>
+        <div class="contact" aria-label="informações de contato">
+          <div class="item"><strong>Telefone:</strong><br><a href="tel:{{TELEFONE}}">(81) 98880-4066</a></div>
+          <div class="item"><strong>WhatsApp:</strong><br><a href="https://wa.me/{{WHATSAPP_PARA_LINK}}" target="_blank" rel="noopener">Abrir conversa</a></div>
+          <div class="item"><strong>E-mail:</strong><br><a href="mailto:{{SEU_EMAIL}}">vinivtc@hotmail.com</a></div>
+        </div>
+        <nav aria-label="links rápidos">
+          <a class="btn" href="#skills">Habilidades</a>
+          <a class="btn" href="#projects">Projetos</a>
+          <a class="btn" href="#contact">Contato</a>
+        </nav>
+      </div>
+    </header>
+
+    <section id="skills" class="cards" aria-labelledby="skills-heading">
+      <div class="card skills" id="skills-col">
+        <h2 id="skills-heading">Habilidades & Ferramentas</h2>
+        <h3>Front-end</h3>
+        <ul>
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JavaScript (ES6+)</li>          
+        </ul>
+        <h3>Back-end</h3>
+        <ul>
+          <li>Node.js</li>          
+        </ul>
+        <h3>Banco de Dados</h3>
+        <ul>
+          <li>MySQL</li>
+          <li>PostgreSQL</li>
+          <li>MongoDB</li>
+        </ul>
+        <h3>Ferramentas / Outras</h3>
+        <ul>
+          <li>Git / GitHub</li>          
+        </ul>
+      </div>
+
+      <div class="card about">
+        <h2>Sobre</h2>
+        <p class="lead">Sou Vinícius Vasconcelos — desenvolvo soluções web com foco em qualidade de código e experiência do usuário. Tenho experiência em projetos full-stack, automação de testes e deploy contínuo.</p>
+
+        <h3 id="contact">Contato</h3>
+        <p>Prefere falar por e-mail ou WhatsApp? Clique nos links acima ou use o formulário abaixo.</p>
+
+        <form onsubmit="event.preventDefault();alert('Preencha os dados reais no HTML ou forneça-os para que eu possa gerar o arquivo final.');" aria-label="formulário de contato simples">
+          <label style="display:block;margin-top:8px">Nome<input style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></label>
+          <label style="display:block;margin-top:8px">E-mail<input style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></label>
+          <label style="display:block;margin-top:8px">Mensagem<textarea style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea></label>
+          <div style="margin-top:8px"><button class="btn" type="submit">Enviar</button></div>
+        </form>
+      </div>
+    </section>
+
+    <section id="projects" class="projects" style="margin-top:22px">
+      <h2>Projetos</h2>
+
+      <!-- Repetir bloco .project para cada projeto -->
+      <article class="project">
+        <h3>Projeto 1 — formulário</h3>
+        <p>Formulário simples para preencimento de dados</p>
+        <p><strong>Link:</strong> <a class="project-link" href="c:\Users\win10m.2\Desktop\VS Code\Formulário Grau\formulário.html c:\Users\win10m.2\Desktop\VS Code\Formulário Grau\jformulário.js c:\Users\win10m.2\Desktop\VS Code\Formulário Grau\formulário.css" target="_blank" rel="noopener">Acessar projeto / repositório</a></p>
+        <p><strong>Tecnologias:</strong> React, Node.js, Express, PostgreSQL, Docker, GitHub Actions</p>
+      </article>
+
+      <article class="project">
+        <h3>Projeto 2 — Projeto Electron</h3>
+        <p>Projeto desenvolvido na aula de Desenvolvimento de Desktop</p>
+        <p><strong>Link:</strong> <a class="project-link" href="c:\Users\win10m.2\Desktop\VS Code\Desenvolvimento de Desktop\projeto-electron" target="_blank" rel="noopener">Acessar projeto / repositório</a></p>
+        <p><strong>Tecnologias:</strong> HTML, CSS, JavaScript, Service Worker, Netlify</p>
+      </article>
+
+      <article class="project">
+        <h3>Projeto 3 — Clubes de Futebol</h3>
+        <p></p>
+        <p><strong>Link:</strong> <a class="project-link" href="c:\Users\win10m.2\Desktop\VS Code\Introdução a computação em nuvem\clubes de futebol\Bandeiradopaís c:\Users\win10m.2\Desktop\VS Code\Introdução a computação em nuvem\clubes de futebol\Federações c:\Users\win10m.2\Desktop\VS Code\Introdução a computação em nuvem\clubes de futebol\Imagensdefundo c:\Users\win10m.2\Desktop\VS Code\Introdução a computação em nuvem\clubes de futebol\Imagensinicio c:\Users\win10m.2\Desktop\VS Code\Introdução a computação em nuvem\clubes de futebol\Times c:\Users\win10m.2\Desktop\VS Code\Introdução a computação em nuvem\clubes de futebol\áfrica.html c:\Users\win10m.2\Desktop\VS Code\Introdução a computação em nuvem\clubes de futebol\américa-norte-central-caribe.html c:\Users\win10m.2\Desktop\VS Code\Introdução a computação em nuvem\clubes de futebol\america-sul.html c:\Users\win10m.2\Desktop\VS Code\Introdução a computação em nuvem\clubes de futebol\ásia.html c:\Users\win10m.2\Desktop\VS Code\Introdução a computação em nuvem\clubes de futebol\estilos.css c:\Users\win10m.2\Desktop\VS Code\Introdução a computação em nuvem\clubes de futebol\europa.html c:\Users\win10m.2\Desktop\VS Code\Introdução a computação em nuvem\clubes de futebol\index.html c:\Users\win10m.2\Desktop\VS Code\Introdução a computação em nuvem\clubes de futebol\oceania.html" target="_blank" rel="noopener">Acessar projeto / repositório</a></p>
+        <p><strong>Tecnologias:</strong> HTML, CSS, JavaScript, Service Worker, Netlify</p>
+      </article>
+
+      <article class="project">
+        <h3>Projeto 4 — </h3>
+        <p></p>
+        <p><strong>Link:</strong> <a class="project-link" href="" target="_blank" rel="noopener">Acessar projeto / repositório</a></p>
+        <p><strong>Tecnologias:</strong> HTML, CSS, JavaScript, Service Worker, Netlify</p>
+      </article>
+
+      <!-- Fim dos projetos -->
+
+    </section>
+
+    <footer>
+      <p>© 2025 Vinícius Vasconcelos Tenório Cavalcanti — Portfólio</p>
+    </footer>
+  </div>
+
+  <script>
+    // Pequeno script para preencher iniciais e ano automaticamente
+    (function(){
+      const name = document.title.replace('Portfólio - ','') || 'Vinícius Vasconcelos Tenório Cavalcanti';
+      const initials = name.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase();
+      document.querySelector('.avatar').textContent = initials || 'VTC';
+      document.querySelector('footer p').textContent = '© ' + (new Date()).getFullYear() + ' ' + name + ' — Portfólio';
+    })();
+  </script>
+</body>
+</html>
